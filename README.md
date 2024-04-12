@@ -1,5 +1,5 @@
 # CAT-KDD-2024
-**Figure 1: Shape functions for each first-order concept learned by the second-order CAT model. The x-axis represents the values of the concepts, while the y-axis indicates the contributions of each value to the listing price. The blue line represent the shape function for a concept. Pink bars represent the normalized data density for 25 bins of concept values.**
+**Figure 1: Shape functions for the first-order concepts learned by the second-order CAT model. The x-axis represents the values of the concepts, while the y-axis indicates the contributions of each value to the listing price. The blue line represents the shape function for a concept. Pink bars represent the normalized data density for 25 bins of concept values.**
 ![Figure 1](./airbnb_shape_functions.png)
 
 
