@@ -1,0 +1,10 @@
+numpy<2.0.0
+pandas
+scikit-learn==1.2.0
+torch==1.13.1
+tqdm>4.29.0
+tensorly==0.8.1
+torchsummary
+sympy
+matplotlib
+seaborn

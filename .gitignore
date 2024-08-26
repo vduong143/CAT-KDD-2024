@@ -1,0 +1,13 @@
+# cache files
+__pycache__/
+wandb/
+checkpoints/
+results/
+checkpoints_old/
+results_old/
+
+# data files
+data/airbnb/preprocessed/
+data/diabetes/preprocessed/
+*.zip
+*.csv

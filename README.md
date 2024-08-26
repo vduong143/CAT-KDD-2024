@@ -1,18 +1,69 @@
-# CAT-KDD-2024
-**Figure 1: Shape functions for the first-order concepts learned by the second-order CAT model on the Airbnb dataset. The x-axis represents the values of the concepts, while the y-axis indicates the contributions of each value to the listing price. The blue line represents the shape function for a concept. Pink bars represent the normalized data density for 25 bins of concept values.**
+# CAT: Interpretable Concept-based Taylor Additive Models
 
-![Figure 1](./airbnb_shape_functions.png)
+This repository contains the code for the paper [CAT: Interpretable Concept-based Taylor Additive Models](https://arxiv.org/abs/2406.17931) by [Viet Duong](vqduong@wm.edu), Qiong Wu, Zhengyi Zhou, [Hongjue Zhao](hongjue2@illinois.edu), Chenxiang Luo, Eric Zavesky, Huaxiu Yao, [Huajie Shao](hshao@wm.edu).
 
+## Model Overview
+CAT consists of two main components: concept encoders and Taylor Neural Networks (TaylorNet). Each concept encoder embeds a group of low-level features into a one-dimensional high-level concept representation. The TaylorNet is a white-box model that uses the high-level concept representations to make predictions.
 
-**Figure 2: Shape functions for three most important second-order interactions (Figure 2 in the submission) learned by the second-order CAT model on the Airbnb dataset. The x-axis and y-axis represent the values of two concepts that interact with each other, while the z-axis indicates the contributions of each second-order interaction value to the listing price. The plotted surface represents the shape function for the second-order interaction between two corresponding concepts. Finally, darker shades of blue denote more positive contributions to the price, and darker shades of red indicate more negative contributions.**
+![Figure 1](./figures/NCM_arch.png)
 
-![Figure 2](./airbnb_shape_functions_order2.png)
+## Library Setup
+```
+git clone https://github.com/vduong143/CAT-KDD-2024.git
+cd CAT-KDD-2024
+conda create --name CAT python=3.9
+conda activate CAT
+pip install -r requirements.txt
+```
 
+## Datasets
+The datasets used in the paper can be obtained from [here](https://drive.google.com/file/d/1mT5-vdhKJgVPZ16WOY-7bFP0IDuxiwJM/view?usp=sharing). The datasets should be placed in the `data` folder.
 
-**Figure 3: Concept contributions using second-order Taylor for predicting gender on the CelebA dataset. Contributions are given by the standardized regression coefficients of the Taylor polynomial. We observe that the _Skin Tone_, _Hair Azimuth_, and _Hair Length_ concepts influence the gender prediction the most.**
+## Training and Evaluation
+Run CAT training and evaluation on Airbnb:
+```
+bash ./scripts/run_airbnb.sh
+```
+Run CAT training and evaluation on COMPAS:
+```
+bash ./scripts/run_compas.sh
+```
 
-![Figure 3](./CelebA_taylor2_contributions.png)
+Run CAT training and evaluation on Diabetes:
+```
+bash ./scripts/run_diabetes.sh
+```
 
-**Figure 4: Shape functions for the first-order concepts learned by the second-order CAT model on the CelebA dataset. The x-axis represents the values of the concepts, while the y-axis indicates the contributions of each value to the prediction of a female person. The blue line represents the shape function for a concept. Pink bars represent the normalized data density for 25 bins of concept values.**
+Run CAT training and evaluation on UCI-HAR:
+```
+bash ./scripts/run_har.sh
+```
 
-![Figure 4](./CelebA_shape_functions.png)
+Run CAT training and evaluation on MNIST:
+```
+bash ./scripts/run_MNIST.sh
+```
+
+Run CAT training and evaluation on CelebA:
+```
+bash ./scripts/run_CelebA.sh
+```
+
+The `gpu` variable should be set to the GPU number you want to use. The random `seed` can be set to desired any integer value.
+
+## Interpretability Evaluation
+The code for visualizing and interpreting the predictions of the CAT (order 2) model can be found in the notebook `CAT_interpretation.ipynb`. Please change the `data_name` variable to the dataset you want to visualize (airbnb or CelebA).
+
+## Citation
+If you find this repository useful in your research, please cite the following paper:
+```
+@inproceedings{duong2024cat,
+  title={CAT: Interpretable Concept-based Taylor Additive Models},
+  author={Duong, Viet and Wu, Qiong and Zhou, Zhengyi and Zhao, Hongjue and Luo, Chenxiang and Zavesky, Eric and Yao, Huaxiu and Shao, Huajie},
+  booktitle={Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
+  year={2024}
+}
+```
+
+## Acknowledgements
+This work was supported in part by the AT&T CDO.
