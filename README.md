@@ -49,7 +49,7 @@ Run CAT training and evaluation on CelebA:
 bash ./scripts/run_CelebA.sh
 ```
 
-The `gpu` variable should be set to the GPU number you want to use. The random `seed` can be set to desired any integer value.
+The `gpu` variable should be set to the GPU number you want to use. The random `seed` can be set to desired any integer value. Both variables can be set in the `run_*.sh` scripts (e.g., `run_airbnb.sh`).
 
 ## Interpretability Evaluation
 The code for visualizing and interpreting the predictions of the CAT (order 2) model can be found in the notebook `CAT_interpretation.ipynb`. Please change the `data_name` variable to the dataset you want to visualize (airbnb or CelebA).
